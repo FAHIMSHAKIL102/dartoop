@@ -1,64 +1,152 @@
-// Class & Object
+// Constructors
 
 void main() {
-  Person person = Person();
-  person.name = 'Fahim Shakil';
-  person.fathername = 'Nazim Uddin';
-  person.age = 25;
-  person.displayInfo();
+  // Student student = Student('bijoy', 34);
+  // student.name = 'fahim';
+  List<Student> name = [
+    Student('bijoy', 34),
+    Student('Ali', 54),
+    Student('Kha', 37),
+  ];
+  name.forEach((element) {
+    print('Name: ${element.name} Age: ${element.age}');
+  });
+  // student.displayInfo();
 
-  Person person1 = Person();
-  person1.name = 'bijoy kha';
-  person1.fathername = 'Ali kha';
-  person1.age = 25;
-  person1.displayInfo();
-
-  Student student = Student();
-  student.studentname = 'Fahim';
-  student.grade = 'A+';
-  student.age = 25;
-  student.studentID = 593;
-  student.displayInfo();
-  student.updateName('Fahim Shakil');
-  student.updateID('201-35-593');
-}
-
-class Person {
-  String? name;
-  String? fathername;
-  int? age;
-
-  void displayInfo() {
-    print('My name is $name');
-    print('My fathername is $fathername');
-    print('My age is $age');
-  }
+  User user = User(uage: 23, uname: 'no', email: 'fahim@email.com');
+  user.displayInfo();
+  List<User> uname = [
+    User(uage: 26, uname: 'nothing', email: 'fahim1@email.com'),
+    User(uage: 53, uname: 'none', email: 'fahim2@email.com'),
+    User(uage: 27, uname: 'noway', email: 'fahim3@email.com'),
+  ];
+  uname.forEach((element) {
+    print(
+      'Name: ${element.uname} Age ${element.uage} Email: ${element.email} ',
+    );
+  });
 }
 
 class Student {
-  String? studentname;
+  String? name;
   int? age;
-  String? grade;
-  var studentID;
+
+  Student(String name, int age) {
+    // print('shakil');
+    this.name = name;
+    this.age = age;
+    print(name);
+  }
   void displayInfo() {
-    print('Student Name: $studentname');
-    print('Student age: $age');
-    print('Student Grade: $grade');
-    print('Student ID: $studentID');
-    print('-----------------------------------------');
-  }
-
-  void updateName(String newname) {
-    studentname = newname;
-    print('New name is  $studentname');
-  }
-
-  void updateID(String newstudentID) {
-    studentID = newstudentID;
-    print('New ID is  $studentID');
-    print('-----------------------------------------');
+    print('--------------------------');
+    print('Name : $name');
+    print('Age  : $age');
+    print('--------------------------');
   }
 }
+
+class User {
+  String? uname;
+  int? uage;
+  String? email;
+  User({this.uage, this.uname = '', required this.email}) {}
+  void displayInfo() {
+    print('--------------------------');
+    print('Name : $uname');
+    print('Age  : $uage');
+    print('Name : $email');
+    print('--------------------------');
+  }
+}
+
+
+// Error handling & Null check Operator
+
+// void main() {
+//   Area area = Area();
+//   area.height = 5;
+
+//   area.calculateRectangleArea();
+// }
+
+// class Area {
+//   double? width;
+//   double? height;
+//   void calculateRectangleArea() {
+//     try {
+//       if (width == null) {
+//         print('width cannot be null');
+//       }
+//       double areaRectangle = width! * height!;
+//       print(areaRectangle);
+//     } catch (e) {
+//       print(e);
+//     }
+//   }
+// }
+
+
+// Class & Object
+
+// void main() {
+//   Person person = Person();
+//   person.name = 'Fahim Shakil';
+//   person.fathername = 'Nazim Uddin';
+//   person.age = 25;
+//   person.displayInfo();
+
+//   Person person1 = Person();
+//   person1.name = 'bijoy kha';
+//   person1.fathername = 'Ali kha';
+//   person1.age = 25;
+//   person1.displayInfo();
+
+//   Student student = Student();
+//   student.studentname = 'Fahim';
+//   student.grade = 'A+';
+//   student.age = 25;
+//   student.studentID = 593;
+//   student.displayInfo();
+//   student.updateName('Fahim Shakil');
+//   student.updateID('201-35-593');
+// }
+
+// class Person {
+//   String? name;
+//   String? fathername;
+//   int? age;
+
+//   void displayInfo() {
+//     print('My name is $name');
+//     print('My fathername is $fathername');
+//     print('My age is $age');
+//   }
+// }
+
+// class Student {
+//   String? studentname;
+//   int? age;
+//   String? grade;
+//   var studentID;
+//   void displayInfo() {
+//     print('Student Name: $studentname');
+//     print('Student age: $age');
+//     print('Student Grade: $grade');
+//     print('Student ID: $studentID');
+//     print('-----------------------------------------');
+//   }
+
+//   void updateName(String newname) {
+//     studentname = newname;
+//     print('New name is  $studentname');
+//   }
+
+//   void updateID(String newstudentID) {
+//     studentID = newstudentID;
+//     print('New ID is  $studentID');
+//     print('-----------------------------------------');
+//   }
+// }
 
 
 // Null Safety
