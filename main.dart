@@ -1,43 +1,59 @@
-// Library Management System
+// Encapsulation
+
+import 'person.dart';
 
 void main() {
-  Book book1 = Book('19984', 'geoge4', '1235', true);
-  Book book2 = Book('19984', 'geoge5', '123445', true);
-  Book book3 = Book('19984', 'geoge45', '1234535', true);
-
-  Library library = Library();
-  library.addBook(book1);
-  library.addBook(book2);
-  library.addBook(book3);
-
-  library.listBook();
+  Person person = Person('fahim', 25);
+  person.displayInfo();
+  
+  person.setName = 'Shakil';
+  person.setAge = 40;
+  print(person.name);
+  print(person.age);
 }
 
-class Book {
-  String tittle;
-  String author;
-  String isbn;
-  bool IsAvailable;
 
-  Book(this.tittle, this.author, this.isbn, this.IsAvailable);
-}
 
-class Library {
-  List<Book> books = [];
+// // Library Management System
 
-  void addBook(Book book) {
-    books.add(book);
-  }
+// void main() {
+//   Book book1 = Book('19984', 'geoge4', '1235', true);
+//   Book book2 = Book('19984', 'geoge5', '123445', true);
+//   Book book3 = Book('19984', 'geoge45', '1234535', true);
 
-  void listBook() {
-    print('-------List All Books-------');
-    for (var book in books) {
-      print(
-        'Tittle ${book.tittle} ${book.author} ${book.isbn} ${book.IsAvailable} ',
-      );
-    }
-  }
-}
+//   Library library = Library();
+//   library.addBook(book1);
+//   library.addBook(book2);
+//   library.addBook(book3);
+
+//   library.listBook();
+// }
+
+// class Book {
+//   String tittle;
+//   String author;
+//   String isbn;
+//   bool IsAvailable;
+
+//   Book(this.tittle, this.author, this.isbn, this.IsAvailable);
+// }
+
+// class Library {
+//   List<Book> books = [];
+
+//   void addBook(Book book) {
+//     books.add(book);
+//   }
+
+//   void listBook() {
+//     print('-------List All Books-------');
+//     for (var book in books) {
+//       print(
+//         'Tittle ${book.tittle} ${book.author} ${book.isbn} ${book.IsAvailable} ',
+//       );
+//     }
+//   }
+// }
 
 
 // Constructors
