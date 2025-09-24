@@ -1,63 +1,105 @@
-// Constructors
+// Library Management System
 
 void main() {
-  // Student student = Student('bijoy', 34);
-  // student.name = 'fahim';
-  List<Student> name = [
-    Student('bijoy', 34),
-    Student('Ali', 54),
-    Student('Kha', 37),
-  ];
-  name.forEach((element) {
-    print('Name: ${element.name} Age: ${element.age}');
-  });
-  // student.displayInfo();
+  Book book1 = Book('19984', 'geoge4', '1235', true);
+  Book book2 = Book('19984', 'geoge5', '123445', true);
+  Book book3 = Book('19984', 'geoge45', '1234535', true);
 
-  User user = User(uage: 23, uname: 'no', email: 'fahim@email.com');
-  user.displayInfo();
-  List<User> uname = [
-    User(uage: 26, uname: 'nothing', email: 'fahim1@email.com'),
-    User(uage: 53, uname: 'none', email: 'fahim2@email.com'),
-    User(uage: 27, uname: 'noway', email: 'fahim3@email.com'),
-  ];
-  uname.forEach((element) {
-    print(
-      'Name: ${element.uname} Age ${element.uage} Email: ${element.email} ',
-    );
-  });
+  Library library = Library();
+  library.addBook(book1);
+  library.addBook(book2);
+  library.addBook(book3);
+
+  library.listBook();
 }
 
-class Student {
-  String? name;
-  int? age;
+class Book {
+  String tittle;
+  String author;
+  String isbn;
+  bool IsAvailable;
 
-  Student(String name, int age) {
-    // print('shakil');
-    this.name = name;
-    this.age = age;
-    print(name);
+  Book(this.tittle, this.author, this.isbn, this.IsAvailable);
+}
+
+class Library {
+  List<Book> books = [];
+
+  void addBook(Book book) {
+    books.add(book);
   }
-  void displayInfo() {
-    print('--------------------------');
-    print('Name : $name');
-    print('Age  : $age');
-    print('--------------------------');
+
+  void listBook() {
+    print('-------List All Books-------');
+    for (var book in books) {
+      print(
+        'Tittle ${book.tittle} ${book.author} ${book.isbn} ${book.IsAvailable} ',
+      );
+    }
   }
 }
 
-class User {
-  String? uname;
-  int? uage;
-  String? email;
-  User({this.uage, this.uname = '', required this.email}) {}
-  void displayInfo() {
-    print('--------------------------');
-    print('Name : $uname');
-    print('Age  : $uage');
-    print('Name : $email');
-    print('--------------------------');
-  }
-}
+
+// Constructors
+
+// void main() {
+//   // Student student = Student('bijoy', 34);
+//   // student.name = 'fahim';
+//   List<Student> name = [
+//     Student('bijoy', 34),
+//     Student('Ali', 54),
+//     Student('Kha', 37),
+//   ];
+//   name.forEach((element) {
+//     print('Name: ${element.name} Age: ${element.age}');
+//   });
+//   // student.displayInfo();
+
+//   User user = User(uage: 23, uname: 'no', email: 'fahim@email.com');
+//   user.displayInfo();
+//   List<User> uname = [
+//     User(uage: 26, uname: 'nothing', email: 'fahim1@email.com'),
+//     User(uage: 53, uname: 'none', email: 'fahim2@email.com'),
+//     User(uage: 27, uname: 'noway', email: 'fahim3@email.com'),
+//   ];
+//   uname.forEach((element) {
+//     print(
+//       'Name: ${element.uname} Age ${element.uage} Email: ${element.email} ',
+//     );
+//   });
+// }
+
+// class Student {
+//   String? name;
+//   int? age;
+
+//   Student(String name, int age) {
+//     // print('shakil');
+//     this.name = name;
+//     this.age = age;
+//     print(name);
+//   }
+//   void displayInfo() {
+//     print('--------------------------');
+//     print('Name : $name');
+//     print('Age  : $age');
+//     print('--------------------------');
+//   }
+// }
+
+// class User {
+//   String? uname;
+//   int? uage;
+//   String? email;
+//   User({this.uage, this.uname = '', required this.email}) {}
+//   void displayInfo() {
+//     print('--------------------------');
+//     print('Name : $uname');
+//     print('Age  : $uage');
+//     print('Name : $email');
+//     print('--------------------------');
+//   }
+// }
 
 
 // Error handling & Null check Operator
