@@ -1,16 +1,74 @@
-// Encapsulation
-
-import 'person.dart';
+// Inhertance Constructor
 
 void main() {
-  Person person = Person('fahim', 25);
-  person.displayInfo();
-  
-  person.setName = 'Shakil';
-  person.setAge = 40;
-  print(person.name);
-  print(person.age);
+  //Inhertance called
+  Student student = Student();
+  student.name = 'Asif Taj';
+  student.age = 25;
+  student.display();
+  student.regNumber = 7964321794621;
+  student.semester = 12;
+  student.displaySchoolInfo();
+
+  // Inhertance Constructor called
+  Model model = Model('Macbook', 1500, 'M4 Pro');
+  model.display();
 }
+
+class Laptop {
+  String brand;
+  int price;
+  Laptop(this.brand, this.price) {
+    print('Laptop Model');
+  }
+  void displayInfo() {
+    print('Model $brand Price $price');
+  }
+}
+
+class Model extends Laptop {
+  String itemname;
+  Model(String brand, int price, this.itemname) : super(brand, price);
+  void display() {
+    super.displayInfo();
+    print('Model $itemname');
+  }
+}
+
+// Inhertance
+
+class Person {
+  String? name;
+  int? age;
+
+  void display() {
+    print('Name: $name');
+    print('Age: $age');
+  }
+}
+
+class Student extends Person {
+  int? regNumber;
+  int? semester;
+  void displaySchoolInfo() {
+    print('Registration number: $regNumber');
+    print('Semester: $semester');
+  }
+}
+
+// // Encapsulation
+
+// import 'person.dart';
+
+// void main() {
+//   Person person = Person('fahim', 25);
+//   person.displayInfo();
+
+//   person.setName = 'Shakil';
+//   person.setAge = 40;
+//   print(person.name);
+//   print(person.age);
+// }
 
 
 
