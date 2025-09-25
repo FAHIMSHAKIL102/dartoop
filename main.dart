@@ -8,6 +8,7 @@ void main() {
   dog.sound();
   Cat cat = Cat();
   cat.sound();
+  // Polymorphism
   Animal mydog =Dog();
   List<Animal> pet=[Dog(),Cat()];
 }
