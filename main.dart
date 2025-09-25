@@ -1,36 +1,68 @@
-// Car Rental
+// Abstraction
+
 void main() {
-  Car car = Car('Toyota', 'Land Cruer', 2020, 4);
-  print('Car Information');
-  car.displayInfo();
-  print('Car Rend is \$${car.calculateRent(5)}');
+  NetworkServiceApi networkServiceApi = NetworkServiceApi();
+  Map<String, String> data = {'Name': 'Fahim Sahkil'};
+  Map<String, int> data2 = {'ID': 593};
+  networkServiceApi.postApi(data);
+  networkServiceApi.getApi(data2);
 }
 
-class Vehicle {
-  String brand;
-  String model;
-  int year;
-  Vehicle(this.brand, this.model, this.year);
-  void displayInfo() {
-    print('Brand: $brand');
-    print('Model: $model');
-    print('Year: $year');
-  }
-
-  int calculateRent(int days) {
-    return days * 50;
-  }
+abstract class BaseAppiService {
+  void postApi(var data);
+  void getApi(var data2);
 }
 
-class Car extends Vehicle {
-  int door;
-  Car(String brand, String model, int year, this.door)
-    : super(brand, model, year);
+class NetworkServiceApi extends BaseAppiService {
   @override
-  int calculateRent(int days) {
-    return super.calculateRent(days)+10*door;
+  void postApi(var data) async {
+    print('Hit Api');
+    await Future.delayed(Duration(seconds: 5));
+    print("User Login Successfully");
+    print(data['Name']);
+    // TODO: implement PostApi
+  }
+
+  @override
+  void getApi(var data2) {
+    print(data2['ID']);
+    // TODO: implement getApi
   }
 }
+
+// // Car Rental
+// void main() {
+//   Car car = Car('Toyota', 'Land Cruer', 2020, 4);
+//   print('Car Information');
+//   car.displayInfo();
+//   print('Car Rend is \$${car.calculateRent(5)}');
+// }
+
+// class Vehicle {
+//   String brand;
+//   String model;
+//   int year;
+//   Vehicle(this.brand, this.model, this.year);
+//   void displayInfo() {
+//     print('Brand: $brand');
+//     print('Model: $model');
+//     print('Year: $year');
+//   }
+
+//   int calculateRent(int days) {
+//     return days * 50;
+//   }
+// }
+
+// class Car extends Vehicle {
+//   int door;
+//   Car(String brand, String model, int year, this.door)
+//     : super(brand, model, year);
+//   @override
+//   int calculateRent(int days) {
+//     return super.calculateRent(days)+10*door;
+//   }
+// }
 
 // // Inhertance Constructor
 
