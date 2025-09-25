@@ -1,38 +1,130 @@
-// Mixin
+// Polymorphism
 
 void main() {
-  Person person = Person('fahim@gmail', '4758569');
-  person.display();
+  Macbook macbook = Macbook();
+  macbook.turnoff();
+  macbook.turnon();
+  Dog dog = Dog();
+  dog.sound();
+  Cat cat = Cat();
+  cat.sound();
+  Animal mydog =Dog();
+  List<Animal> pet=[Dog(),Cat()];
 }
 
-class Person with Logger, Validation {
-  String email, password;
-  Person(this.email, this.password);
-  void display() {
-    if (validatePassword(password) != null) {
-      log(validatePassword(password).toString());
-    } else {
-      log('Email ${email} Password ${password}');
-    }
+class Laptop {
+  void turnon() {
+    print('Laptop turn on');
+  }
+
+  void turnoff() {
+    print('Laptop turn off');
   }
 }
 
-mixin Logger {
-  void log(String message) {
-    print(message);
+class Macbook implements Laptop {
+  @override
+  void turnon() {
+    print('Macbook turn on');
+  }
+
+  @override
+  void turnoff() {
+    print('Macbook turn off');
   }
 }
-mixin Validation {
-  String? validatePassword(String value) {
-    if (value.isEmpty) {
-      return 'Password cannot be empty';
-    }
-    if (value.length < 6) {
-      return 'Password must be 6 character';
-    }
-    return null;
+
+abstract class Animal {
+  void sound();
+  void eat() {
+    print('the animal is eating');
   }
 }
+
+class Dog extends Animal {
+  @override
+  void sound() {
+    super.eat();
+    print('bark');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  void sound() {
+    print('meo');
+  }
+}
+
+
+// // Enum
+
+// void main() {
+//   Person person = Person('Fahim', Gender.Male, AdminPanel.admin);
+//   print(person.adminPanel.name);
+//   print(person.name);
+//   person.show();
+//   Gender gender = Gender.Male;
+//   switch (gender) {
+//     case Gender.Male:
+//       print("Male");
+//     case Gender.Female:
+//       print("Female");
+//   }
+// }
+
+// enum Gender { Male, Female }
+
+// enum Status { loading, error, success }
+
+// enum AdminPanel { admin, user }
+
+// class Person {
+//   String name;
+//   Gender gender;
+//   AdminPanel adminPanel;
+//   Person(this.name, this.gender, this.adminPanel);
+//   void show() {
+//     print(name);
+//   }
+// }
+
+
+// // Mixin
+
+// void main() {
+//   Person person = Person('fahim@gmail', '4758569');
+//   person.display();
+// }
+
+// class Person with Logger, Validation {
+//   String email, password;
+//   Person(this.email, this.password);
+//   void display() {
+//     if (validatePassword(password) != null) {
+//       log(validatePassword(password).toString());
+//     } else {
+//       log('Email ${email} Password ${password}');
+//     }
+//   }
+// }
+
+// mixin Logger {
+//   void log(String message) {
+//     print(message);
+//   }
+// }
+// mixin Validation {
+//   String? validatePassword(String value) {
+//     if (value.isEmpty) {
+//       return 'Password cannot be empty';
+//     }
+//     if (value.length < 6) {
+//       return 'Password must be 6 character';
+//     }
+//     return null;
+//   }
+// }
 
 
 // // Interfece
