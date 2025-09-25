@@ -1,58 +1,95 @@
-// Interfece
+// Mixin
 
 void main() {
-  Macbook macbook = Macbook();
-  macbook.turnoff();
-  macbook.turnon();
-  Dog dog = Dog();
-  dog.sound();
-  Cat cat = Cat();
-  cat.sound();
+  Person person = Person('fahim@gmail', '4758569');
+  person.display();
 }
 
-class Laptop {
-  void turnon() {
-    print('Laptop turn on');
-  }
-
-  void turnoff() {
-    print('Laptop turn off');
+class Person with Logger, Validation {
+  String email, password;
+  Person(this.email, this.password);
+  void display() {
+    if (validatePassword(password) != null) {
+      log(validatePassword(password).toString());
+    } else {
+      log('Email ${email} Password ${password}');
+    }
   }
 }
 
-class Macbook implements Laptop {
-  @override
-  void turnon() {
-    print('Macbook turn on');
+mixin Logger {
+  void log(String message) {
+    print(message);
   }
-
-  @override
-  void turnoff() {
-    print('Macbook turn off');
+}
+mixin Validation {
+  String? validatePassword(String value) {
+    if (value.isEmpty) {
+      return 'Password cannot be empty';
+    }
+    if (value.length < 6) {
+      return 'Password must be 6 character';
+    }
+    return null;
   }
 }
 
-abstract class Animal {
-  void sound();
-  void eat() {
-    print('the animal is eating');
-  }
-}
 
-class Dog extends Animal {
-  @override
-  void sound() {
-    super.eat();
-    print('bark');
-  }
-}
+// // Interfece
 
-class Cat extends Animal {
-  @override
-  void sound() {
-    print('meo');
-  }
-}
+// void main() {
+//   Macbook macbook = Macbook();
+//   macbook.turnoff();
+//   macbook.turnon();
+//   Dog dog = Dog();
+//   dog.sound();
+//   Cat cat = Cat();
+//   cat.sound();
+// }
+
+// class Laptop {
+//   void turnon() {
+//     print('Laptop turn on');
+//   }
+
+//   void turnoff() {
+//     print('Laptop turn off');
+//   }
+// }
+
+// class Macbook implements Laptop {
+//   @override
+//   void turnon() {
+//     print('Macbook turn on');
+//   }
+
+//   @override
+//   void turnoff() {
+//     print('Macbook turn off');
+//   }
+// }
+
+// abstract class Animal {
+//   void sound();
+//   void eat() {
+//     print('the animal is eating');
+//   }
+// }
+
+// class Dog extends Animal {
+//   @override
+//   void sound() {
+//     super.eat();
+//     print('bark');
+//   }
+// }
+
+// class Cat extends Animal {
+//   @override
+//   void sound() {
+//     print('meo');
+//   }
+// }
 
 // // Abstraction
 
