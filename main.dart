@@ -1,34 +1,90 @@
-// Abstraction
+// Interfece
 
 void main() {
-  NetworkServiceApi networkServiceApi = NetworkServiceApi();
-  Map<String, String> data = {'Name': 'Fahim Sahkil'};
-  Map<String, int> data2 = {'ID': 593};
-  networkServiceApi.postApi(data);
-  networkServiceApi.getApi(data2);
+  Macbook macbook = Macbook();
+  macbook.turnoff();
+  macbook.turnon();
+  Dog dog = Dog();
+  dog.sound();
+  Cat cat = Cat();
+  cat.sound();
 }
 
-abstract class BaseAppiService {
-  void postApi(var data);
-  void getApi(var data2);
+class Laptop {
+  void turnon() {
+    print('Laptop turn on');
+  }
+
+  void turnoff() {
+    print('Laptop turn off');
+  }
 }
 
-class NetworkServiceApi extends BaseAppiService {
+class Macbook implements Laptop {
   @override
-  void postApi(var data) async {
-    print('Hit Api');
-    await Future.delayed(Duration(seconds: 5));
-    print("User Login Successfully");
-    print(data['Name']);
-    // TODO: implement PostApi
+  void turnon() {
+    print('Macbook turn on');
   }
 
   @override
-  void getApi(var data2) {
-    print(data2['ID']);
-    // TODO: implement getApi
+  void turnoff() {
+    print('Macbook turn off');
   }
 }
+
+abstract class Animal {
+  void sound();
+  void eat() {
+    print('the animal is eating');
+  }
+}
+
+class Dog extends Animal {
+  @override
+  void sound() {
+    super.eat();
+    print('bark');
+  }
+}
+
+class Cat extends Animal {
+  @override
+  void sound() {
+    print('meo');
+  }
+}
+
+// // Abstraction
+
+// void main() {
+//   NetworkServiceApi networkServiceApi = NetworkServiceApi();
+//   Map<String, String> data = {'Name': 'Fahim Sahkil'};
+//   Map<String, int> data2 = {'ID': 593};
+//   networkServiceApi.postApi(data);
+//   networkServiceApi.getApi(data2);
+// }
+
+// abstract class BaseAppiService {
+//   void postApi(var data);
+//   void getApi(var data2);
+// }
+
+// class NetworkServiceApi extends BaseAppiService {
+//   @override
+//   void postApi(var data) async {
+//     print('Hit Api');
+//     await Future.delayed(Duration(seconds: 5));
+//     print("User Login Successfully");
+//     print(data['Name']);
+//     // TODO: implement PostApi
+//   }
+
+//   @override
+//   void getApi(var data2) {
+//     print(data2['ID']);
+//     // TODO: implement getApi
+//   }
+// }
 
 // // Car Rental
 // void main() {
