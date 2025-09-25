@@ -1,60 +1,94 @@
-// Inhertance Constructor
-
+// Car Rental
 void main() {
-  //Inhertance called
-  Student student = Student();
-  student.name = 'Asif Taj';
-  student.age = 25;
-  student.display();
-  student.regNumber = 7964321794621;
-  student.semester = 12;
-  student.displaySchoolInfo();
-
-  // Inhertance Constructor called
-  Model model = Model('Macbook', 1500, 'M4 Pro');
-  model.display();
+  Car car = Car('Toyota', 'Land Cruer', 2020, 4);
+  print('Car Information');
+  car.displayInfo();
+  print('Car Rend is \$${car.calculateRent(5)}');
 }
 
-class Laptop {
+class Vehicle {
   String brand;
-  int price;
-  Laptop(this.brand, this.price) {
-    print('Laptop Model');
-  }
+  String model;
+  int year;
+  Vehicle(this.brand, this.model, this.year);
   void displayInfo() {
-    print('Model $brand Price $price');
+    print('Brand: $brand');
+    print('Model: $model');
+    print('Year: $year');
+  }
+
+  int calculateRent(int days) {
+    return days * 50;
   }
 }
 
-class Model extends Laptop {
-  String itemname;
-  Model(String brand, int price, this.itemname) : super(brand, price);
-  void display() {
-    super.displayInfo();
-    print('Model $itemname');
+class Car extends Vehicle {
+  int door;
+  Car(String brand, String model, int year, this.door)
+    : super(brand, model, year);
+  @override
+  int calculateRent(int days) {
+    return super.calculateRent(days)+10*door;
   }
 }
 
-// Inhertance
+// // Inhertance Constructor
 
-class Person {
-  String? name;
-  int? age;
+// void main() {
+//   //Inhertance called
+//   Student student = Student();
+//   student.name = 'Asif Taj';
+//   student.age = 25;
+//   student.display();
+//   student.regNumber = 7964321794621;
+//   student.semester = 12;
+//   student.displaySchoolInfo();
 
-  void display() {
-    print('Name: $name');
-    print('Age: $age');
-  }
-}
+//   // Inhertance Constructor called
+//   Model model = Model('Macbook', 1500, 'M4 Pro');
+//   model.display();
+// }
 
-class Student extends Person {
-  int? regNumber;
-  int? semester;
-  void displaySchoolInfo() {
-    print('Registration number: $regNumber');
-    print('Semester: $semester');
-  }
-}
+// class Laptop {
+//   String brand;
+//   int price;
+//   Laptop(this.brand, this.price) {
+//     print('Laptop Model');
+//   }
+//   void displayInfo() {
+//     print('Model $brand Price $price');
+//   }
+// }
+
+// class Model extends Laptop {
+//   String itemname;
+//   Model(String brand, int price, this.itemname) : super(brand, price);
+//   void display() {
+//     super.displayInfo();
+//     print('Model $itemname');
+//   }
+// }
+
+// // Inhertance
+
+// class Person {
+//   String? name;
+//   int? age;
+
+//   void display() {
+//     print('Name: $name');
+//     print('Age: $age');
+//   }
+// }
+
+// class Student extends Person {
+//   int? regNumber;
+//   int? semester;
+//   void displaySchoolInfo() {
+//     print('Registration number: $regNumber');
+//     print('Semester: $semester');
+//   }
+// }
 
 // // Encapsulation
 
