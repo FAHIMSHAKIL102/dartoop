@@ -1,61 +1,94 @@
-// Polymorphism
-
+// Record
 void main() {
-  Macbook macbook = Macbook();
-  macbook.turnoff();
-  macbook.turnon();
-  Dog dog = Dog();
-  dog.sound();
-  Cat cat = Cat();
-  cat.sound();
-  // Polymorphism
-  Animal mydog =Dog();
-  List<Animal> pet=[Dog(),Cat()];
+  dynamic user = (name: 'Fahim', age: 26);
+  print('Age' + user.age.toString());
+  print('name' + user.name);
+  var arthOp = arth(20, 10);
+  var (sum, sub) = arthOp;
+  print(sum);
+  print(sub);
+
+  DateTime now = DateTime(2025, 08, 12);
+  print(now);
+  var (day, minute) = returnDayMinute(now);
+  print(day);
+  print(minute);
 }
 
-class Laptop {
-  void turnon() {
-    print('Laptop turn on');
-  }
-
-  void turnoff() {
-    print('Laptop turn off');
-  }
+(int, int) arth(x, y) {
+  return (x + y, x - y);
 }
 
-class Macbook implements Laptop {
-  @override
-  void turnon() {
-    print('Macbook turn on');
-  }
+(int, int) returnDayMinute(DateTime date) {
+  DateTime now = DateTime.now();
 
-  @override
-  void turnoff() {
-    print('Macbook turn off');
-  }
+  print(now);
+  int day = now.difference(date).inDays;
+  int minute = now.difference(date).inMinutes;
+
+  return (day, minute);
 }
 
-abstract class Animal {
-  void sound();
-  void eat() {
-    print('the animal is eating');
-  }
-}
 
-class Dog extends Animal {
-  @override
-  void sound() {
-    super.eat();
-    print('bark');
-  }
-}
 
-class Cat extends Animal {
-  @override
-  void sound() {
-    print('meo');
-  }
-}
+// // Polymorphism
+
+// void main() {
+//   Macbook macbook = Macbook();
+//   macbook.turnoff();
+//   macbook.turnon();
+//   Dog dog = Dog();
+//   dog.sound();
+//   Cat cat = Cat();
+//   cat.sound();
+//   // Polymorphism
+//   Animal mydog =Dog();
+//   List<Animal> pet=[Dog(),Cat()];
+// }
+
+// class Laptop {
+//   void turnon() {
+//     print('Laptop turn on');
+//   }
+
+//   void turnoff() {
+//     print('Laptop turn off');
+//   }
+// }
+
+// class Macbook implements Laptop {
+//   @override
+//   void turnon() {
+//     print('Macbook turn on');
+//   }
+
+//   @override
+//   void turnoff() {
+//     print('Macbook turn off');
+//   }
+// }
+
+// abstract class Animal {
+//   void sound();
+//   void eat() {
+//     print('the animal is eating');
+//   }
+// }
+
+// class Dog extends Animal {
+//   @override
+//   void sound() {
+//     super.eat();
+//     print('bark');
+//   }
+// }
+
+// class Cat extends Animal {
+//   @override
+//   void sound() {
+//     print('meo');
+//   }
+// }
 
 
 // // Enum
